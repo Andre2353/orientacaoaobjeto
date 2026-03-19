@@ -10,7 +10,7 @@ public class Main {
         int escolha = sc.nextInt();
         sc.nextLine();
 
-        System.out.print("Nome: ");
+        System.out.print("nome: ");
         String nome = sc.nextLine();
 
         Personagem jogador;
@@ -29,28 +29,34 @@ public class Main {
                 jogador = new Guerreiro(nome);
         }
 
-        Personagem inimigo = new Guerreiro("Inimigo");
+        Personagem inimigo = new Guerreiro("Inimigo : Gurreiro3");
 
         while (jogador.getVida() > 0 && inimigo.getVida() > 0) {
 
-            System.out.println("\n1-Atacar  2-Habilidade");
-            int op = sc.nextInt();
+            System.out.println("1-Atacar  2-Habilidade");
+            int ataque = sc.nextInt();
 
-            switch (op) {
+            switch (ataque) {
                 case 1:
                     int dano = jogador.getAtaque();
                     inimigo.receberDano(dano);
-                    System.out.println("⚔" +
+                    System.out.println(
                             "Você causou " + dano + " de dano!");
                     break;
 
                 case 2:
-                    if (jogador instanceof Mago) {
-                        ((Mago) jogador).lancarMagia(inimigo);
-                    } else if (jogador instanceof Guerreiro) {
-                        ((Guerreiro) jogador).defender();
-                    } else if (jogador instanceof Arqueiro) {
-                        ((Arqueiro) jogador).esquivar();
+                    switch (escolha) {
+                        case 1:
+                            ((Mago) jogador).lancarMagia(inimigo);
+                            break;
+
+                        case 2:
+                            ((Guerreiro) jogador).defender();
+                            break;
+
+                        case 3:
+                            ((Arqueiro) jogador).tiro_certeiro(inimigo);
+                            break;
                     }
                     break;
 
@@ -60,8 +66,6 @@ public class Main {
 
 
             if (inimigo.getVida() <= 0) break;
-
-            // inimigo ataca
             int danoInimigo = inimigo.getAtaque();
             jogador.receberDano(danoInimigo);
             System.out.println(" Inimigo causou " + danoInimigo + " de dano!");
@@ -70,10 +74,14 @@ public class Main {
             System.out.println(" Vida do inimigo: " + inimigo.getVida());
         }
 
-        System.out.println(
-                jogador.getVida() > 0 ? "\n Você venceu!" : "\n Você perdeu!"
-        );
 
+        if (jogador.getVida() <= 0) {
+            System.out.println("vc perdeu");
+        } else if (inimigo.getVida() <= 0) {
+            System.out.println("vc ganhou ");
+        }
+        ;
+        sc.close();
 
     }
 }

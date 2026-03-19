@@ -1,23 +1,25 @@
+import java.util.Random;
+
 public class Arqueiro extends Personagem {
 
-    private boolean esquiva = false;
+    Random random = new Random();
 
     public Arqueiro(String nome) {
-        super(nome, 90, 12);
+        super(nome, 90, 22);
     }
 
-    public void esquivar() {
-        esquiva = true;
-        System.out.println("🏹 Esquivando! Pode evitar o próximo ataque.");
-    }
+    public void tiro_certeiro(Personagem inimigo) {
+        int dano = this.getAtaque();
 
-    @Override
-    public void receberDano(int dano) {
-        if (esquiva) {
-            System.out.println(" Ataque esquivado!");
-            esquiva = false;
-            return;
+
+        int chance = random.nextInt();
+
+        if (chance < 70) {
+            dano *= 3;
+            System.out.println("atingido");
         }
-        super.receberDano(dano);
+
+        inimigo.receberDano(dano);
+        System.out.println("Você causou " + dano + " de dano!");
     }
 }

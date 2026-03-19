@@ -24,4 +24,6 @@ public class Personagem {
             this.vida = 0;
         }
     }
+
+
 }
