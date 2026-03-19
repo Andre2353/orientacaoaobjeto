@@ -8,8 +8,15 @@ public class Arqueiro extends Personagem {
         super(nome, 90, 22);
     }
 
+<<<<<<< HEAD
     public void tiro_certeiro(Personagem inimigo) {
         int dano = this.getAtaque();
+=======
+    public void esquivar() {
+        esquiva = true;
+        System.out.println(" Esquivando! Pode evitar o próximo ataque.");
+    }
+>>>>>>> a28924b76a7b6096d9629b01169193cc9f4019af
 
 
         int chance = random.nextInt();
