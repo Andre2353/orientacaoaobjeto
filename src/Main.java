@@ -1,23 +1,30 @@
-public class Main {
-    public static void main(String[] args) {
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+void main() {
 
-        Conta cc = new Conta_cc("001", "0001", "Joao", 100);
-        Conta cp = new conta_po("002", "0001", "Maria", 200);
-        Conta pj = new Conta_PJ("003", "0001", "Empresa", 300);
-
-        System.out.print("Conta Corrente: ");
-        cc.depositar(50);
-        cc.sacar(30);
-        cc.exibirSaldo();
-
-        System.out.print("Conta Poupanca: ");
-        cp.depositar(100);
-        cp.sacar(50);
-        cp.exibirSaldo();
-
-        System.out.print("Conta PJ: ");
-        pj.depositar(200);
-        pj.sacar(100);
-        pj.exibirSaldo();
+    Scanner sc = new Scanner(System.in);
+    IO.println("Digite o nome da pessoa");
+    String nome = sc.next();
+    IO.println("digite seu Email");
+    String email =sc.next();
+    if(!email.contains("@")||email.startsWith("@")|| email.endsWith("@")){
+        IO.println("email invalido ");
+        return;
     }
+    IO.println("digite o sexo (m ou f)");
+    String sexo = sc.next();
+    if (!sexo.equalsIgnoreCase("F")&& !sexo.equalsIgnoreCase("M")){
+        IO.println("sexo invalido");
+        return;
+    }
+
+    IO.println("digite sua idade");
+    if(sc.hasNextInt()){
+        int idade = sc.nextInt();
+        pessoa pessoa = new pessoa(nome,email,sexo,idade);
+        IO.println(pessoa);
+    }else {
+        IO.println("idade invalida,Digite apenas numeros");
+    }
+
 }
