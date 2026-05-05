@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/SistemaDePedidosComEnum.iml" filepath="$PROJECT_DIR$/SistemaDePedidosComEnum.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/javafx.iml" filepath="$PROJECT_DIR$/javafx.iml" />
+>>>>>>> 17e5a3a (odeio java 08)
     </modules>
   </component>
 </project>
