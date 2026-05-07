@@ -13,6 +13,8 @@ void main() {
     JButton button1 = new JButton("resetar campos ");
     button1.setBounds(20, 250, 150, 40);
 
+
+
     JLabel label = new JLabel("Digite seu e-mail ");
     label.setBounds(20, 50, 150, 40);
 
@@ -30,6 +32,8 @@ void main() {
         String email= input.getText();
         String senha= input1.getText();
 
+
+
         if ("admin@senai.com".equals(email) && "123456".equals(senha)) {
             JOptionPane.showMessageDialog(null, "login realizado");
         }
@@ -44,6 +48,9 @@ void main() {
     });
 
 
+
+
+
         button1.addActionListener(e -> {
             input.setText("");
             input1.setText("");
@@ -51,10 +58,14 @@ void main() {
 
 
     janela.add(label);
+
     janela.add(label1);
+
     janela.add(buttonenviar);
+
     janela.add(button1);
     janela.add(input);
-    janela.add(input1);
+    janela.add(input1)
+    ;
     janela.setVisible(true);
 }
