@@ -1,13 +1,12 @@
 import javax.swing.*;
 
 
-public static void main(String[] args) {
+void main() {
 
-    JFrame janela = new JFrame("Exeplo swing");
+    JFrame janela = new JFrame("Ex");
     janela.setSize(1000, 1000);
     janela.setLayout(null);
 
-    // Componentes
     JButton buttonenviar = new JButton("Entrar ");
     buttonenviar.setBounds(20, 200, 150, 40);
 
@@ -32,24 +31,23 @@ public static void main(String[] args) {
         String senha= input1.getText();
 
         if ("admin@senai.com".equals(email) && "123456".equals(senha)) {
-            JOptionPane.showConfirmDialog(null, "login realizado");
+            JOptionPane.showMessageDialog(null, "login realizado");
         }
-        else if(input1.getText().equals("") && input.getText().equals("")) {
-            JOptionPane.showConfirmDialog(null, "nenhum campo pode estar vazio");
+        else if(input1.getText().equals("") && input.getText().equals("")||input1.getText().equals("")||input.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "nenhum campo pode estar vazio");
         }
 
         else {
-            JOptionPane.showConfirmDialog(null, "senha incorreta ");
+            JOptionPane.showMessageDialog(null, "senha incorreta ");
         }
 
     });
 
-    button1.addActionListener(e -> {
-        button1.addActionListener(_ -> {
+
+        button1.addActionListener(e -> {
             input.setText("");
             input1.setText("");
         });
-    });
 
 
     janela.add(label);
